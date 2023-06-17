@@ -1,9 +1,13 @@
 const mongoose = require("mongoose");
-const URI = "mongodb://localhost:27017/notes";
+require('dotenv').config()
+const URI = process.env.DATABASE;
 
 const connectToMongo = async () => {
   mongoose
-    .connect(URI)
+    .connect(URI,{
+      // useNewUrlParser: true,
+      // useUnifiedTopology:true,
+    })
     .then(() => {
       console.log("ho gya");
     })

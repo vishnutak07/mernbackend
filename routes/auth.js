@@ -9,7 +9,7 @@ const fetchdata = require("../middleware/fetchdata");
 
 require("dotenv").config();
 
-const JWT_SECRET = process.env.JWT_SECRET_KEY;
+const JWT_SECRET = 'gfg_jwt_secret_key';
 
 // Create a User using : POST '/api/auth'
 Router.post(
@@ -57,7 +57,7 @@ Router.post(
       };
       const jwtAuth = jwt.sign(data, JWT_SECRET);
 
-      res.json({ jwtAuth,otp});
+      res.json({ jwtAuth});
     } catch (err) {
       res.status(500).json({ error: "error accur" });
       console.log(err);
